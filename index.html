@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Kittidech Ditsuwan 61011441</title>
+        <script>
+
+
+        var random1 = 0;
+        var random2 = 0;
+
+        var answer = 0;
+        var correctAnswer = 0;
+
+        function reload(){
+            random1 = Math.round(Math.random() * 100);
+            random2 = Math.round(Math.random() * 100);
+            document.getElementById("random1").innerText = random1;
+            document.getElementById("random2").innerText = random2;
+            document.getElementById("answer").value = "";
+            document.getElementById("response").innerText = "";
+
+        }
+        function checkAnswer(){
+            answer = document.getElementById("answer").value;
+            correctAnswer = random1 + random2;
+            if(answer == correctAnswer){
+                document.getElementById("response").innerText = "Good Job!";
+                document.getElementById("response").className = "correct";
+            } else {
+                document.getElementById("response").innerText = "Try Again!";
+                document.getElementById("response").className = "incorrect";
+            }
+}
+        </script>
+        <style>
+            .correct{
+                color: green;
+                font-size: 30px;
+                font-weight: bold;
+            }
+            .incorrect{
+                color: red;
+                font-size: 30px;
+                font-weight: bold;
+            }
+        </style>    
+    </head>
+    <body>
+        <h1>Kittidech Ditsuwan 61011441</h1>
+        <div style="width: 400px; padding: 10px; border: 3px solid black; margin: 0; text-align: center;">
+            <div>
+                <h1 style="text-align:center;">QUIZ</h1>
+            </div>
+            <div style="font-size: 22px;">
+                What is the answer of <span id="random1">x</span> + <span id="random2"> y</span>?
+                <input id="answer" type="text" />
+            </div>
+            <div style="height: 10px;">
+
+            </div>
+            <button onclick="checkAnswer()">Check</button>
+            <button onclick="reload()">Re-random</button>
+            <p id="response"></p>
+        </div>
+        <script>
+            reload();
+        </script>
+    </body>
+</html>
